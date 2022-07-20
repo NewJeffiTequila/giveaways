@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+    db:
+        container_name: giveway_db
+        image: "mysql:5.7"
+        environment:
+            MYSQL_DATABASE: "giveway"
+            MYSQL_USER: "giveway"
+            MYSQL_PASSWORD: "123456"
+            MYSQL_ROOT_PASSWORD: "123456"
+        ports:
+            - '3307:3306'
+        volumes:
+            - ./.docker/mysql:/var/lib/mysql

@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.9",
+    "typeorm": "^0.3.7"
   },
   "devDependencies": {
     "@types/node": "^18.0.6",
@@ -16,7 +20,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon",
     "start:dev": "nodemon"
-
   },
   "author": "",
   "license": "ISC"

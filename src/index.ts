@@ -1,6 +1,21 @@
-const express = require("express");
+
+import { DataSource } from "typeorm";
 import Rifa from "./rifa/Rifa";
-const app = express();
+import User from "./User/User";
+import AppDataSource from "./db";
+import UserService from "./User/UserService";
+import app from "./routes";
+
+
+
+
+AppDataSource.initialize()
+.then(() => {
+    console.log("Data Source has been initialized!")
+})
+.catch((err:any) => {
+    console.error("Error during Data Source initialization", err)
+})
 
 app.get("/", function (req:any, res:any) {
   let cartelas = [];
@@ -59,16 +74,14 @@ app.get("/", function (req:any, res:any) {
   res.send(cartelas);
 });
 
-app.get("/rifas", function (req:any, res:any) {
-  const rifa = new Rifa(10, 1000, 200);
-  res.send(rifa);
-});
 
 
 
 
-app.listen(3001);
-console.log("O PAI TA ON...");
+
+const port:Number = 3003
+app.listen(port);
+console.log("O PAI TA ON...", port);
 
 function getRandomInt(min:number, max:number):Number{
   min = Math.ceil(min);
