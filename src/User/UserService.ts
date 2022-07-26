@@ -15,4 +15,15 @@ export default class UserService {
     const createdUser = await AppDataSource.manager.save(User, user);
     return createdUser;
   }
+  // get user by email
+  async getUserByEmail(email: string): Promise<User|null> {
+    const user:User | null = await AppDataSource.manager.findOneBy(User, { email: email })
+    return user;
+  }
+  async register(name:string ,email:string, encryptedPassword:string): Promise<User> {
+    const user = new User(name ,email, encryptedPassword);
+
+    const createdUser = await AppDataSource.manager.save(User, user);
+    return createdUser;
+  }
 }

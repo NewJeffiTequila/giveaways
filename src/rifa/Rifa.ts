@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export default class Rifa {
@@ -9,10 +9,16 @@ export default class Rifa {
   }
   @PrimaryGeneratedColumn()
   id?: number;
+  @Column({ type: "float" })
   price: Number;
+  @Column({ type: "float" })
   reward: Number;
+  @Column({ type: "int" })
   amount: Number;
-  status?: Boolean;
+  @Column({ type: "boolean" })
+  isProgress?: Boolean;
+  @Column({ type: "int" ,nullable: true})
   winner?: Number;
+  @Column({ type: "int" ,nullable: false})
   owner?: Number;
 }
